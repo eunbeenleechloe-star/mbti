@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 타입파인드 (TypeFind)
 
-## Getting Started
+12개의 짧은 질문으로 만나는 나의 MBTI. 회원가입 없이 2~3분 안에 결과를 확인하고, SNS에 공유하기 좋은 결과 카드를 받아볼 수 있는 웹 서비스입니다.
 
-First, run the development server:
+## 주요 기능
+
+- **12문항 간편 테스트**: 기존 서비스 대비 짧은 문항 수로 빠르게 완주
+- **결과 카드**: 공유 최적화된 이미지 카드 자동 생성 (`html-to-image`)
+- **실시간 유형 분포 통계**: 내 유형이 얼마나 흔한지/희귀한지 확인 (`recharts`)
+- **회원가입 불필요**: 즉시 시작, 즉시 결과 확인
+
+## 기술 스택
+
+- [Next.js](https://nextjs.org) 16 (App Router)
+- React 19, TypeScript
+- Tailwind CSS 4
+- Zustand (상태 관리)
+- Framer Motion (애니메이션)
+- Recharts (통계 시각화)
+
+## 시작하기
+
+의존성 설치 후 개발 서버를 실행합니다.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) 에서 확인할 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 프로젝트 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  page.tsx          # 랜딩 페이지
+  test/page.tsx      # 테스트 진행 페이지
+  result/page.tsx     # 결과 페이지
+  stats/page.tsx      # 유형 분포 통계 페이지
+  api/results/        # 결과 저장 API
+  api/stats/          # 통계 조회 API
+components/           # UI 컴포넌트
+lib/                  # 질문 데이터, 채점 로직, 상태 스토어
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+자세한 기획 내용은 [PRD.md](./PRD.md)를 참고하세요.
